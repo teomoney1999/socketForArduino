@@ -3,16 +3,16 @@ var http = require("http");
 var socketio = require("socket.io");
 var ip = require("ip");
 // CONFIG
-var config = require("./config");
+// var config = require("./config");
 
 // GLOBAL VARIABLE
 var app = http.createServer();
 var io = socketio(app);
-var PORT = config.PORT;
+var PORT = 8266;
 
 // Listen at PORT
 app.listen(PORT);
-console.log(`Server running at: + ${ip.address()}:${PORT}`);
+console.log(`Server running at: ${ip.address()}:${PORT}`);
 
 // Create event "connection" to create socket
 io.on("connection", (socket) => {
